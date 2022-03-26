@@ -11,6 +11,7 @@ import java.awt.Toolkit;
 import panel.ComparisonPanel;
 import panel.MainPanel;
 import panel.SearchPanel;
+import panel.SettingsPanel;
 import panel.UserPanel;
 
 /**
@@ -34,6 +35,7 @@ public class MainFrame extends javax.swing.JFrame {
     MainPanel mainPanel;
     SearchPanel searchPanel;
     ComparisonPanel comparisonPanel;
+    SettingsPanel settingsPanel;
     
     
     
@@ -53,6 +55,7 @@ public class MainFrame extends javax.swing.JFrame {
         userPanel = new UserPanel(this);
         mainPanel = new MainPanel(this);
         searchPanel = new SearchPanel(this);
+        settingsPanel = new SettingsPanel(this);
         this.comparisonPanel = new ComparisonPanel(this.width, this.height, this);
         
         searchPanel.setVisible(false);
@@ -61,8 +64,9 @@ public class MainFrame extends javax.swing.JFrame {
         this.getContentPane().add(mainPanel, mainFrameLayout.CENTER);
         this.getContentPane().add(searchPanel, BorderLayout.NORTH);
         this.getContentPane().add(this.comparisonPanel, mainFrameLayout.CENTER);
+        this.getContentPane().add(this.settingsPanel, mainFrameLayout.CENTER);
         this.comparisonPanel.setVisible(false);
-        
+        this.settingsPanel.setVisible(false);
         
     }
     
@@ -71,15 +75,25 @@ public class MainFrame extends javax.swing.JFrame {
         if(location.equals("north")) this.getContentPane().add(object, mainFrameLayout.NORTH);
     }
     
-    public void setComparisonVisible()
+    public void setComparisonVisible(boolean flag)
     {
-        this.comparisonPanel.setVisible(true);
-        this.userPanel.setVisible(false);
+        this.comparisonPanel.setVisible(flag);
+        this.userPanel.setVisible(!flag);
+        this.revalidate();
+        this.repaint();
     }
     
     public UserPanel getUserPanel()
     {
         return this.userPanel;
+    }
+    
+    public void setSettingsVisible(boolean flag)
+    {
+        this.settingsPanel.setVisible(flag);
+        this.userPanel.setVisible(!flag);
+        this.revalidate();
+        this.repaint();
     }
     
     public void setElementVisible(boolean flag)

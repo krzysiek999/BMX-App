@@ -5,6 +5,8 @@
  */
 package panel;
 
+import frame.MainFrame;
+import java.awt.Dimension;
 import java.util.ResourceBundle;
 
 /**
@@ -16,16 +18,16 @@ public class SettingsPanel extends javax.swing.JPanel {
     /**
      * Creates new form SettingsPanel
      */
-    private MainPanel panel;
+    private MainFrame frame;
     private String language;
     ResourceBundle resource;
     
-    public SettingsPanel(MainPanel panel) {
+    public SettingsPanel(MainFrame frame) {
         
-        this.panel = panel;
-        this.language = panel.getFrame().getLanguage();
+        this.frame = frame;
+        this.language = "properties/" + frame.getLanguage();
         this.resource = ResourceBundle.getBundle(language);
-        initComponents();
+        this.setSize(new Dimension(frame.getMainPanel().getWidth(), frame.getMainPanel().getHeight()));
     }
 
     /**

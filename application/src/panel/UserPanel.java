@@ -128,27 +128,28 @@ public class UserPanel extends javax.swing.JPanel implements ActionListener{
         else setButtonsVisible(false);
     }
     
-    if(e.getSource() == exitButton) System.exit(0);
+    else if(e.getSource() == exitButton) System.exit(0);
     
-    if(e.getSource() == searchButton)
+    else if(e.getSource() == searchButton)
     { 
         if(frame.getMainPanel().getBasketFrame().isVisible())  frame.getMainPanel().getBasketFrame().getPanel().getCompareButton().setEnabled(true);
         
         frame.getMainPanel().setVisible(false);
-        frame.setComparisonVisible();
-        frame.revalidate();
-        frame.repaint();
-        
-       
-        
+        frame.setComparisonVisible(true);
     }
     
-    if(e.getSource() == purchaseBasket) 
+    else if(e.getSource() == purchaseBasket) 
     {
         if(frame.getMainPanel().getBasketFrame().isVisible()) frame.getMainPanel().getBasketFrame().setVisible(false);
         else frame.getMainPanel().getBasketFrame().setVisible(true);
         
         frame.getMainPanel().getBasketFrame().getPanel().getCompareButton().setEnabled(false);
+    }
+    
+    else if(e.getSource() == settingsButton)
+    {
+        frame.getMainPanel().setVisible(false);
+        frame.setSettingsVisible(true);
     }
     
     }

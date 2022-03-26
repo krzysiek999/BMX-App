@@ -46,11 +46,6 @@ public class ComparisonPanel extends javax.swing.JPanel {
         splitPane.setPreferredSize(new Dimension(width, height));
         splitPane.setDividerLocation(width/2);
         
-        product1.setProductName("XDXD");
-        product1.setPrice("123");
-        product2.setProductName("ajkfhsjkah");
-        product2.setPrice("342");
-        
         splitPanel.add(splitPane);
         splitPanel.setBounds(0, 0, width, height);
         box = Box.createVerticalBox();
@@ -102,8 +97,6 @@ public class ComparisonPanel extends javax.swing.JPanel {
             basketButton.addActionListener(this);
             
         }
-        
-        
 
         @Override
         public void actionPerformed(ActionEvent e) {
